@@ -20,6 +20,12 @@ use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+
+    Authentication
+ 
+    Session
+    Session::Store::File
+    Session::State::Cookie
 /;
 
 extends 'Catalyst';
@@ -45,11 +51,22 @@ __PACKAGE__->config(
 __PACKAGE__->config(
     'View::HTML' => {
         TEMPLATE_EXTENSION => '.tt2',
-        WRAPPER => 'wrapper.tt2',
+        WRAPPER => 'login.tt2',
         INCLUDE_PATH => [
             __PACKAGE__->path_to('root/src'),
         ],
         render_die => 1,
+    },
+);
+
+# Configure SimpleDB Authentication
+__PACKAGE__->config(
+    'Plugin::Authentication' => {
+        default => {
+            class           => 'SimpleDB',
+            user_model      => 'DB::User',
+            password_type   => 'clear',
+        },
     },
 );
 

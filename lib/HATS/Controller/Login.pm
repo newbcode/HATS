@@ -26,7 +26,6 @@ sub index :Path :Args(0) {
 
    # $c->response->body('Matched HATS::Controller::Login in Login.');
     # Get the username and password from form
-=pod
     my $username = $c->request->params->{username};
     my $password = $c->request->params->{password};
  
@@ -48,7 +47,6 @@ sub index :Path :Args(0) {
         $c->stash(error_msg => "Empty username or password.")
             unless ($c->user_exists);
     }
-=cut 
     # If either of above don't work out, send to the login page
     $c->stash(template => 'login.tt2');
 }
