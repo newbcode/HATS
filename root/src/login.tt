@@ -72,8 +72,8 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
         <button class="btn btn-large btn-primary" type="submit">Log In</button>
-	<!-- 반드시 action을 취할때 버튼과 액션을 같이 사용해야 한다 ex: <링크 액션 버튼> -->
-        <a href="[% c.uri_for_action('/idcreate/test') %]" button class="btn btn-large" type="signin">Create ID</button></a>
+	<!-- 반드시 action을 취할때 버튼과 액션을 같이 사용해야 한다 ex: 링크 액션 버튼 -->
+        <a href="[% c.uri_for_action('/member/create') %]" button class="btn btn-large" type="signin">Create ID</button></a>
       </form>
 
     </div> <!-- /container -->

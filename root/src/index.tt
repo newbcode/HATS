@@ -70,7 +70,7 @@
               <input class="span2" type="password" placeholder="Password">
 	      -->
 	      <li><a href="/login"><button type="submit" class="btn">Log In</a></li></button>
-              <li class="signup"><a href="/id_create"><button type="submit" class="btn">ID Create</a></li></button>
+              <li class="signup"><a href="/member/create"><button type="submit" class="btn">ID Create</a></li></button>
 
             </form>
           </div><!--/.nav-collapse -->

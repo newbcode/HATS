@@ -4,14 +4,6 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
-has 'form' => (
-  isa => 'HATS::Form::User',
-  is => 'rw',
-  lazy => 1,
-  default => sub { HATS::Form::User->new }
-);
-
-
 =head1 NAME
 
 HATS::Controller::Member - Catalyst Controller
@@ -34,26 +26,15 @@ sub index :Path :Args(0) {
 
     $c->response->body('Matched HATS::Controller::Member in Member.');
 }
-sub about :Local :Args(0) {
-  my ( $self, $c ) = @_;
-
-  $c->detach($c->view("TT"));
-}
 
 sub create :Local {
   my ( $self, $c, $user_id ) = @_;
 
-  $c->stash(template => 'member/create.tt', form => $self->form );
+  $c->stash(template => 'member/create.tt' );
+  #$c->stash(template => 'index.tt2'); 
 
   # Validate and insert data into database
-  return unless $self->form->process(
-    item_id => $user_id,
-    params => $c->req->parameters,
-    schema => $c->model('DB')->schema
-  );
-
-  # Form validated, return to home
-  $c->res->redirect($c->uri_for_action('/index'));
+  #$c->res->redirect($c->uri_for_action('/index'));
 }
 
 =head1 AUTHOR

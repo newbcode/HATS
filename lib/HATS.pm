@@ -52,9 +52,9 @@ __PACKAGE__->config(
 __PACKAGE__->config(
     'View::TT' => {
         #TEMPLATE_EXTENSION => '.tt',
-        WRAPPER => 'login.tt',
+        #WRAPPER => '.tt',
         INCLUDE_PATH => [
-            __PACKAGE__->path_to('root/src'),
+            __PACKAGE__->path_to('root', 'src' ),
         ],
         #render_die => 1,
     },
