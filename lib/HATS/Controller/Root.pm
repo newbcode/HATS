@@ -28,10 +28,9 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    
-    $c->reponse->body('I am Root.pm');
-    #$c->stash('template', 'index.tt2');
-    #$c->stash('template', 'login.tt2');
+    $c->detach->( $c->view("TT") );
+    $c->response->body( 'Test' );
+    #$c->stash->('template', 'login.tt');
 }
 
 =head2 default
@@ -46,6 +45,7 @@ sub default :Path {
     $c->response->status(404);
 }
 
+
 =head2 end
 
 Attempt to render a view, if needed.
@@ -58,6 +58,7 @@ Check if there is a user and, if not, forward to login page
  
 =cut
  
+=pod
 # Note that 'auto' runs after 'begin' but before your actions and that
 # 'auto's "chain" (all from application path to most specific class are run)
 # See the 'Actions' section of 'Catalyst::Manual::Intro' for more info.
@@ -87,7 +88,7 @@ sub auto :Private {
     # User found, so return 1 to continue with processing after this 'auto'
     return 1;
 }
-
+=cut
 sub end : ActionClass('RenderView') {}
 
 =head1 AUTHOR

@@ -22,6 +22,7 @@ use Catalyst qw/
     Static::Simple
 
     Authentication
+    Authorization::Roles
  
     Session
     Session::Store::File
@@ -49,13 +50,13 @@ __PACKAGE__->config(
 );
 
 __PACKAGE__->config(
-    'View::HTML' => {
-        TEMPLATE_EXTENSION => '.tt2',
-        WRAPPER => 'login.tt2',
+    'View::TT' => {
+        #TEMPLATE_EXTENSION => '.tt',
+        WRAPPER => 'login.tt',
         INCLUDE_PATH => [
             __PACKAGE__->path_to('root/src'),
         ],
-        render_die => 1,
+        #render_die => 1,
     },
 );
 
