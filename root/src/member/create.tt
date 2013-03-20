@@ -1,43 +1,99 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <html lang="en">
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css"> 
-<div id="main">
-<div class="container">
-<div id="signup" class="accounts-form row">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in &middot; HATS Create </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <div class="span10 offset2">
-        <h1>Sign up to HATS</h1>
-        <p class="note">HATS 계정을 생성 하세요! </p>
+    <!-- Le styles -->
 
-        
-            <div class="all-errors">
-                
-            </div>
-            <div class="input">
-                <input id="id_username" type="text" placeholder="Username" name="username" maxlength="30" />
-                
-            </div>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
 
-            <div class="input">
-                <input id="id_email" type="text" placeholder="Email" name="email" maxlength="75" />
-                
-            <div class="email_suggestion"></div>
-            </div>
-            <div class="input">
-                <input type="password" placeholder="Password" name="password" id="id_password" />
-                
-            </div>
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
 
-            <div class="action">
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-                
-                    <input type="hidden" name="next" value="/welcome/" />
-                
-                <input type="submit" value="Create account" class="btn btn-green"/>
-            </div>
-        </form>
-    </div>
-</div>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
 
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
 
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <form class="form-signin">
+        <h2 class="form-signin-heading">HATS CREATE</h2>
+        <input type="text" class="input-block-level" placeholder="User name">
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+	<button class="btn btn-large btn-primary" type="submit">Create ID</button>
+      </form>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+
+</html>
 
