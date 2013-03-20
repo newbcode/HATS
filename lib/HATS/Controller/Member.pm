@@ -30,6 +30,10 @@ sub index :Path :Args(0) {
 sub create :Local {
   my ( $self, $c, $user_id ) = @_;
 
+  my $nickname     = $c->request->params->{nickname}       || 'N/A';
+  my $email        = $c->request->params->{email}          || 'N/A';
+  my $password     = $c->request->params->{password}       || 'N/A';
+
   $c->stash(template => 'member/create.tt' );
   #$c->stash(template => 'index.tt2'); 
 
