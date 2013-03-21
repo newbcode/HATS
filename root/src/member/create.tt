@@ -64,12 +64,12 @@
 
     <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">HATS CREATE</h2>
-        <input type="text" class="input-block-level" placeholder="User name">
+      <form class="form-signin" method="post" [% c.uri_for_action('/member/create_do') %]">
+        <h2 class="form-signin-heading">HATS ID CREATE</h2>
+        <input name="nickname" type="text" class="input-block-level" placeholder="User name">
         <input type="text" class="input-block-level" placeholder="Email address">
         <input type="password" class="input-block-level" placeholder="Password">
-	<button class="btn btn-large btn-primary" type="submit">Create ID</button>
+	<a href="[% c.uri_for_action('/member/create_do') %]" button class="btn btn-large btn-primary" type="signin">Create ID</button></a>
       </form>
 
     </div> <!-- /container -->

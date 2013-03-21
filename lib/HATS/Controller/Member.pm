@@ -28,17 +28,22 @@ sub index :Path :Args(0) {
 }
 
 sub create :Local {
+    my ( $self, $c ) = @_;
+    $c->stash(template => 'member/create.tt' );
+}
+
+sub create_do :Local {
   my ( $self, $c, $user_id ) = @_;
 
-  my $nickname     = $c->request->params->{nickname}       || 'N/A';
-  my $email        = $c->request->params->{email}          || 'N/A';
-  my $password     = $c->request->params->{password}       || 'N/A';
+  #my $nickname     = $c->request->params->{nickname}       || 'N/A';
+  my $nickname     = $c->request->params->{nickname};
+  my $email        = $c->request->params->{email};
+  my $password     = $c->request->params->{password};
 
-  $c->stash(template => 'member/create.tt' );
   #$c->stash(template => 'index.tt2'); 
-
   # Validate and insert data into database
   #$c->res->redirect($c->uri_for_action('/index'));
+  $c->response->body("$nickname");
 }
 
 =head1 AUTHOR
