@@ -64,12 +64,12 @@
 
     <div class="container">
 
-      <form class="form-signin" method="post" <: $c.uri_for_action('/member/create_do') :>">
+      <form class="form-signin" method="post" action="<: $c.uri_for_action('/member/create_do') :>">
         <h2 class="form-signin-heading">HATS ID CREATE</h2>
         <input name="nickname" type="text" class="input-block-level" placeholder="User name">
         <input type="text" class="input-block-level" placeholder="Email address">
         <input type="password" class="input-block-level" placeholder="Password">
-	<a href="<: $c.uri_for_action('/member/create_do') :>" button class="btn btn-large btn-primary" type="signin">Create ID</button></a>
+        <input type="submit" class="btn btn-large brn-primary">
       </form>
 
     </div> <!-- /container -->
