@@ -3,16 +3,6 @@ package HATS::Model::DB;
 use strict;
 use base 'Catalyst::Model::DBIC::Schema';
 
-__PACKAGE__->config(
-    schema_class => 'HATS::Schema',
-    
-    connect_info => {
-        dsn => 'dbi:mysql:database=hats',
-        user => 'hats',
-        password => 'qwe123',
-    }
-);
-
 =head1 NAME
 
 HATS::Model::DB - Catalyst DBIC Schema Model
