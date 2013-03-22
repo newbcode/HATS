@@ -43,7 +43,9 @@ sub create_do :Local {
   #$c->stash(template => 'index.tt2'); 
   # Validate and insert data into database
   #$c->res->redirect($c->uri_for_action('/index'));
-  $c->response->body("$nickname");
+  $c->response->body("$nickname $email $password");
+  #$c->response->body("$email");
+  #$c->response->body("$password");
 }
 
 =head1 AUTHOR
