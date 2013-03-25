@@ -46,7 +46,7 @@ __PACKAGE__->table("user");
   is_auto_increment: 1
   is_nullable: 0
 
-=head2 nickname
+=head2 username
 
   data_type: 'char'
   is_nullable: 0
@@ -69,7 +69,7 @@ __PACKAGE__->table("user");
 __PACKAGE__->add_columns(
   "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
-  "nickname",
+  "username",
   { data_type => "char", is_nullable => 0, size => 30 },
   "email",
   { data_type => "char", is_nullable => 0, size => 30 },

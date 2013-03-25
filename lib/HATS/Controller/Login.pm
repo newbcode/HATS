@@ -23,23 +23,29 @@ Catalyst Controller.
 
 sub index :Path Args(0) {
     my ( $self, $c ) = @_;
-    my $nickname = $c->request->params->{nickname};
+    # Get the username and password from form
+    my $username = $c->request->params->{username};
     my $password = $c->request->params->{password};
-
-    if ( $nickname && $password ) { 
-        if ($c->authenticate ({ nickname => $nickname,
-                                password => $password })) {
-            $c->response->redirect($c->uri_for( $c->controller('hats')));
+    #$c->response->body( "$password");
+ 
+    # If the username and password values were found in form
+    if ($username && $password) {
+        # Attempt to log the user in
+        if ($c->authenticate({ username => $username,
+                               password => $password  } )) {
+            # If successful, then let them use the application
+            $c->res->redirect($c->uri_for('/hats'));
             return;
+        } else {
+            # Set an error message
+            $c->stash(error_msg => "Bad username or password.");
         }
-        else {
-            $c->stash(error_msg => "Bad UserName or Password.");
-        }
-    }
-    else {
+    } else {
+        # Set an error message
         $c->stash(error_msg => "Empty username or password.")
-        unless ($c->user_exists);
+            unless ($c->user_exists);
     }
+    # If either of above don't work out, send to the login page
     $c->stash(template => 'login.tt');
 }
 
@@ -52,18 +58,18 @@ sub create : Local {
 sub create_do :Local {
   my ( $self, $c ) = @_;
 
-    my $nickname = $c->request->params->{nickname};
+    my $username = $c->request->params->{username};
     my $email    = $c->request->params->{email};
     my $password    = $c->request->params->{password};
     my $user  =  $c->model('DB::user')->create({
 
-        nickname => $nickname,
+        username => $username,
         email => $email,
         password => $password
   });
   # Validate and insert data into database
   $c->res->redirect($c->uri_for('/hats'));
-  #$c->response->body("$nickname $email $password");
+  #$c->response->body("$username $email $password");
 }
 
 =head1 AUTHOR
