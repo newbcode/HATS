@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -66,14 +66,14 @@
 
       <form class="form-signin">
         <h2 class="form-signin-heading">HATS LOGIN</h2>
-        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="text" class="input-block-level" placeholder="Username">
         <input type="password" class="input-block-level" placeholder="Password">
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
         <button class="btn btn-large btn-primary" type="submit">Log In</button>
 	<!-- 반드시 action을 취할때 버튼과 액션을 같이 사용해야 한다 ex: 링크 액션 버튼 -->
-        <a href="[% c.uri_for_action('/member/create') %]" button class="btn btn-large" type="signin">Create ID</button></a>
+        <a href="[% c.uri_for_action('/login/create') %]" button class="btn btn-large" type="signin">Create ID</button></a>
       </form>
 
     </div> <!-- /container -->

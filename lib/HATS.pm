@@ -49,9 +49,10 @@ __PACKAGE__->config(
     enable_catalyst_header => 1, # Send X-Catalyst header
 );
 
+#글로벌 설정은 VIEW단에서 해준다.
 __PACKAGE__->config(
     'View::TT' => {
-        #TEMPLATE_EXTENSION => '.tt',
+        TEMPLATE_EXTENSION => '.tt',
         #WRAPPER => '.tt',
         INCLUDE_PATH => [
             __PACKAGE__->path_to('root', 'src' ),

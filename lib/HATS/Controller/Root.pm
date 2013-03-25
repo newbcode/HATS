@@ -28,34 +28,8 @@ The root page (/)
 
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
-    #$c->detach->( $c->view("TT") );
-    #$c->stash->('template', 'login.tt');
-    #$c->response->body( 'Root.pm TEST PAGE' );
-    # Get the username and password from form
-    my $username = $c->request->params->{username};
-    my $password = $c->request->params->{password};
- 
-    # If the username and password values were found in form
-    if ($username && $password) {
-        # Attempt to log the user in
-        if ($c->authenticate({ username => $username,
-                               password => $password  } )) {
-            # If successful, then let them use the application
-            $c->response->redirect($c->uri_for_action('/index'));
-            return;
-            #$c->response->redirect($c->uri_for(
-            #   $c->controller('')->action_for('list')));
-        } else {
-            # Set an error message
-            $c->stash(error_msg => "Bad username or password.");
-        }
-    } else {
-        # Set an error message
-        $c->stash(error_msg => "Empty username or password.")
-            unless ($c->user_exists);
-    }
-    # If either of above don't work out, send to the login page
-    $c->stash(template => 'login.tt' );
+    $c->response->body( 'This page is root index');
+ #$c->stash(template => 'member/create.tt');
 }
 
 =head2 default
@@ -64,15 +38,11 @@ Standard 404 error page
 
 =cut
 
-sub hats :Global {
-    my ( $self, $c ) = @_;
-    $c->stash(template => 'index.tt' );
-}
-
 sub about_test :Global {
     my ( $self, $c ) = @_;
     $c->response->body( 'This is page about link ' );
 }
+
 
 sub default :Path {
     my ( $self, $c ) = @_;

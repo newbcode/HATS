@@ -21,34 +21,49 @@ Catalyst Controller.
 
 =cut
 
-sub index :Path :Args(0) {
+sub index :Path Args(0) {
     my ( $self, $c ) = @_;
-
-   # $c->response->body('Matched HATS::Controller::Login in Login.');
-    # Get the username and password from form
-    my $username = $c->request->params->{username};
+    my $nickname = $c->request->params->{nickname};
     my $password = $c->request->params->{password};
- 
-    # If the username and password values were found in form
-    if ($username && $password) {
-        # Attempt to log the user in
-        if ($c->authenticate({ username => $username,
-                               password => $password  } )) {
-            # If successful, then let them use the application
-            $c->response->redirect($c->uri_for(
-                $c->controller('Books')->action_for('list')));
+
+    if ( $nickname && $password ) { 
+        if ($c->authenticate ({ nickname => $nickname,
+                                password => $password })) {
+            $c->response->redirect($c->uri_for( $c->controller('hats')));
             return;
-        } else {
-            # Set an error message
-            $c->stash(error_msg => "Bad username or password.");
-        }                                                                                                                                                           
-    } else {
-        # Set an error message
-        $c->stash(error_msg => "Empty username or password.")
-            unless ($c->user_exists);
+        }
+        else {
+            $c->stash(error_msg => "Bad UserName or Password.");
+        }
     }
-    # If either of above don't work out, send to the login page
-    $c->stash(template => 'index.tt2');
+    else {
+        $c->stash(error_msg => "Empty username or password.")
+        unless ($c->user_exists);
+    }
+    $c->stash(template => 'login.tt');
+}
+
+sub create : Local {
+    my ( $self, $c ) = @_;
+    #$c->response->body( 'This page is login create action');
+    $c->stash(template => 'member/create.tt');
+}
+
+sub create_do :Local {
+  my ( $self, $c ) = @_;
+
+    my $nickname = $c->request->params->{nickname};
+    my $email    = $c->request->params->{email};
+    my $password    = $c->request->params->{password};
+    my $user  =  $c->model('DB::user')->create({
+
+        nickname => $nickname,
+        email => $email,
+        password => $password
+  });
+  # Validate and insert data into database
+  $c->res->redirect($c->uri_for('/hats'));
+  #$c->response->body("$nickname $email $password");
 }
 
 =head1 AUTHOR

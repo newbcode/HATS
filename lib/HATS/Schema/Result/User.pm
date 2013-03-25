@@ -6,7 +6,7 @@ package HATS::Schema::Result::User;
 
 =head1 NAME
 
-HATS::Schema::Result::User - user table
+HATS::Schema::Result::User
 
 =cut
 
@@ -24,11 +24,13 @@ extends 'DBIx::Class::Core';
 
 =item * L<DBIx::Class::InflateColumn::DateTime>
 
+=item * L<DBIx::Class::TimeStamp>
+
 =back
 
 =cut
 
-__PACKAGE__->load_components("InflateColumn::DateTime");
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp");
 
 =head1 TABLE: C<user>
 
@@ -48,18 +50,19 @@ __PACKAGE__->table("user");
 
   data_type: 'char'
   is_nullable: 0
-  size: 20
+  size: 30
+
+=head2 email
+
+  data_type: 'char'
+  is_nullable: 0
+  size: 30
 
 =head2 password
 
   data_type: 'char'
   is_nullable: 0
-  size: 150
-
-=head2 email
-
-  data_type: 'text'
-  is_nullable: 0
+  size: 30
 
 =cut
 
@@ -67,11 +70,11 @@ __PACKAGE__->add_columns(
   "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "nickname",
-  { data_type => "char", is_nullable => 0, size => 20 },
-  "password",
-  { data_type => "char", is_nullable => 0, size => 150 },
+  { data_type => "char", is_nullable => 0, size => 30 },
   "email",
-  { data_type => "text", is_nullable => 0 },
+  { data_type => "char", is_nullable => 0, size => 30 },
+  "password",
+  { data_type => "char", is_nullable => 0, size => 30 },
 );
 
 =head1 PRIMARY KEY
@@ -87,8 +90,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-11 23:38:43
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:iPYKA6ZULc75ZxndGXajQw
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-25 14:34:13
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:7ZJtj9G3T9+7tkwEw7rEwg
 # Have the 'password' column use a SHA-1 hash and 20-byte salt
 # with RFC 2307 encoding; Generate the 'check_password" method
 __PACKAGE__->add_columns(

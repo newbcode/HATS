@@ -33,19 +33,19 @@ sub create :Local {
 }
 
 sub create_do :Local {
-  my ( $self, $c, $user_id ) = @_;
+  my ( $self, $c ) = @_;
+    my $nickname     = $c->request->params->{nickname};
+    my $email    = $c->request->params->{email};
+    my $password = $c->request->params->{password};
 
-  #my $nickname     = $c->request->params->{nickname}       || 'N/A';
-  my $nickname     = $c->request->params->{nickname};
-  my $email        = $c->request->params->{email};
-  my $password     = $c->request->params->{password};
-
-  #$c->stash(template => 'index.tt2'); 
+  my $user  =  $c->model('DB::user')->create({
+        nickname => $nickname,
+        email => $email,
+        password => $password
+  });
   # Validate and insert data into database
-  #$c->res->redirect($c->uri_for_action('/index'));
-  $c->response->body("$nickname $email $password");
-  #$c->response->body("$email");
-  #$c->response->body("$password");
+  #$c->res->redirect($c->uri_for_action('/index');
+  #$c->response->body("$nickname $email $password");
 }
 
 =head1 AUTHOR
