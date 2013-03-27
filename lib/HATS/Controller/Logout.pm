@@ -24,7 +24,9 @@ Catalyst Controller.
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    $c->response->body('Matched HATS::Controller::Logout in Logout.');
+    #$c->response->body('Matched HATS::Controller::Logout in Logout.');
+    $c->logout;
+    $c->res->redirect($c->uri_for('/login'));
 }
 
 

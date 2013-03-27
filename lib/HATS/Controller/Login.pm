@@ -27,6 +27,7 @@ sub index :Path Args(0) {
     my $username = $c->request->params->{username};
     my $password = $c->request->params->{password};
     #$c->response->body( "$password");
+    my $login_flag = 'on';
  
     # If the username and password values were found in form
     if ($username && $password) {
@@ -35,14 +36,16 @@ sub index :Path Args(0) {
                                password => $password  } )) {
             # If successful, then let them use the application
             $c->res->redirect($c->uri_for('/hats'));
+            $c->stash(suc_msg => "Log ins Sucess!");
             return;
         } else {
+            $login_flag = 'off';
             # Set an error message
-            $c->stash(error_msg => "Bad username or password.");
+            $c->stash(error_msg => "Bad Username Or Password.");
         }
     } else {
         # Set an error message
-        $c->stash(error_msg => "Empty username or password.")
+        $c->stash(error_msg => "PLZ ID and PASSWORD INPUT")
             unless ($c->user_exists);
     }
     # If either of above don't work out, send to the login page

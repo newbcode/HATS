@@ -66,18 +66,20 @@
 
       <! -- form class="form-signin" -->
       <form class="form-signin" method="post" action="[% c.uri_for('/login') %]">
-
         <h2 class="form-signin-heading">HATS LOGIN</h2>
         <input name="username" type="text" class="input-block-level" placeholder="Username">
         <input name="password" type="password" class="input-block-level" placeholder="Password">
+	[% UNLESS c.user_exists %]
+		<span class="message">[% error_msg %]</span>
+	[% END %]
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-        <button class="btn btn-large btn-primary" type="submit" >Log In</button>
+        <button class="btn btn-primary" type="submit" >Log In</button>
+        <a href="[% c.uri_for('/logout') %]" button class="btn" type="submit" >Log Out</button></a>
 	<! -- 반드시 action을 취할때 버튼과 액션을 같이 사용해야 한다 ex: 링크 액션 버튼 -->
-        <a href="[% c.uri_for_action('/login/create') %]" button class="btn btn-large" type="signin">Create ID</button></a>
+        <a href="[% c.uri_for_action('/login/create') %]" button class="btn" type="signin">Create ID</button></a>
       </form>
-
     </div> <!-- /container -->
 
     <!-- Le javascript
