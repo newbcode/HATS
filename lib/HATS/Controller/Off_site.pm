@@ -25,7 +25,7 @@ sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
     #$c->response->body('Matched HATS::Controller::Off_site in Off_site.');
-    $c->stash(template => 'off_site/main.tt');
+    $c->stash(template => 'off_site/off_main.tt');
 }
 
 
