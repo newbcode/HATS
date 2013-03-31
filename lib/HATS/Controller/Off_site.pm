@@ -28,7 +28,12 @@ sub index :Path :Args(0) {
     $c->stash(template => 'off_site/off_main.tt');
 }
 
+sub write :Local {
+    my ( $self, $c ) = @_;
 
+    #$c->response->body('이슈등록 페이지 입니다');
+    $c->stash(template => 'off_site/off_write.tt');
+}
 =head1 AUTHOR
 
 newbcode,,,
