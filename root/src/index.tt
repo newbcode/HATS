@@ -48,7 +48,7 @@
             <ul class="nav">
               <li class="active"><a href="[% c.uri_for('/hats') %]">Home</a></li>
               <li><a href="[% c.uri_for('/about_test') %]">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="[% c.uri_for('/contact_test') %]">Contact</a></li>
             </ul>
             <form class="navbar-form pull-right">
 	     <!--

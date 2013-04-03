@@ -43,6 +43,10 @@ sub about_test :Global {
     $c->response->body( 'This is page about link ' );
 }
 
+sub contact_test :Global {
+    my ( $self, $c ) = @_;
+    $c->response->body( 'This is page contact link ' );
+}
 
 sub default :Path {
     my ( $self, $c ) = @_;
