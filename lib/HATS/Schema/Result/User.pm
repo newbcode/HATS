@@ -26,11 +26,13 @@ extends 'DBIx::Class::Core';
 
 =item * L<DBIx::Class::TimeStamp>
 
+=item * L<DBIx::Class::PassphraseColumn>
+
 =back
 
 =cut
 
-__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp");
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp", "PassphraseColumn");
 
 =head1 TABLE: C<user>
 
@@ -50,19 +52,19 @@ __PACKAGE__->table("user");
 
   data_type: 'char'
   is_nullable: 0
-  size: 30
-
-=head2 email
-
-  data_type: 'char'
-  is_nullable: 0
-  size: 30
+  size: 50
 
 =head2 password
 
   data_type: 'char'
   is_nullable: 0
-  size: 30
+  size: 50
+
+=head2 email
+
+  data_type: 'char'
+  is_nullable: 0
+  size: 50
 
 =cut
 
@@ -70,11 +72,11 @@ __PACKAGE__->add_columns(
   "id",
   { data_type => "integer", is_auto_increment => 1, is_nullable => 0 },
   "username",
-  { data_type => "char", is_nullable => 0, size => 30 },
-  "email",
-  { data_type => "char", is_nullable => 0, size => 30 },
+  { data_type => "char", is_nullable => 0, size => 50 },
   "password",
-  { data_type => "char", is_nullable => 0, size => 30 },
+  { data_type => "char", is_nullable => 0, size => 50 },
+  "email",
+  { data_type => "char", is_nullable => 0, size => 50 },
 );
 
 =head1 PRIMARY KEY
@@ -90,21 +92,10 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-03-25 14:34:13
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:7ZJtj9G3T9+7tkwEw7rEwg
-# Have the 'password' column use a SHA-1 hash and 20-byte salt
-# with RFC 2307 encoding; Generate the 'check_password" method
-__PACKAGE__->add_columns(
-    'password' => {
-        passphrase       => 'rfc2307',
-        passphrase_class => 'SaltedDigest',
-        passphrase_args  => {
-            algorithm   => 'SHA-1',
-            salt_random => 20.
-        },
-        passphrase_check_method => 'check_password',
-    },
-);
+# Created by DBIx::Class::Schema::Loader v0.07035 @ 2013-04-03 22:51:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:eso7mmg6P4oEBHy69RWtEQ
+
+
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;
 1;

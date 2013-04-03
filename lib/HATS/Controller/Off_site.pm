@@ -33,6 +33,7 @@ sub write :Local {
 
     #$c->response->body('이슈등록 페이지 입니다');
     $c->stash(template => 'off_site/off_write.tt');
+    #$c->stash(template => 'off_site/test.tt');
 }
 =head1 AUTHOR
 
