@@ -66,14 +66,14 @@
           <h3>이슈를 등록 합니다. </h3>
 	<div class="row-fluid">
 	<div class="span6">
-    <FORM action="test" method="post">
+    <FORM action="[% c.uri_for('/off_site/write') %]" method="post">
      <P>
      <FIELDSET>
       <LEGEND>오프라인 사업 정보</LEGEND>
-	<label>접수시간</label><input class=span5 type="text">	
-	<label>사업명</label><input class=span5 type="text"><span class="help-inline">요청한 고객의 포함된 사업명</span>	
-	<label>고객이름</label><input class=span5 type="text">	
-	<label>담당자</label><input class=span5 type="text"><span class="help-inline">연락을 받은 분</span>	
+	<label>접수시간</label><input name="calltime" class=span5 type="text">	
+	<label>사업명</label><input name="pjtname" class=span5 type="text"><span class="help-inline">요청한 고객의 포함된 사업명</span>	
+	<label>고객이름</label><input name="callername" class=span5 type="text">	
+	<label>담당자</label><input name="anscall" class=span5 type="text"><span class="help-inline">연락을 받은 분</span>	
 	<label>진행상태</label>	
 	    <label class="checkbox inline">
 		    <input type="checkbox" id="inlineCheckbox1" value="option1">최초접수 
@@ -86,15 +86,13 @@
 	    </label>
      </FIELDSET>
         </div>
-	</FORM>
 	<div class="span6">
-    <FORM action="test" method="post">
 	<P>
      <FIELDSET>
 	<LEGEND>제품정보</LEGEND>
-	<label>제품명</label><input class=span8 type="text"><span class="help-inline">문의 제품</span>	
-	<label>어플리케이션 또는 프로그램</label><input class=span8 type="text">
-	<label>비고</label><input class=span8 type="text"><span class="help-inline">기타 특이사항</span>	
+	<label>제품명</label><input name="product" class=span8 type="text"><span class="help-inline">문의 제품</span>	
+	<label>어플리케이션 또는 프로그램</label><input name="appname" class=span8 type="text">
+	<label>비고</label><input name="remark" class=span8 type="text"><span class="help-inline">기타 특이사항</span>	
      </FIELDSET>
 	</div>
 	</FORM>
